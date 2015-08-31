@@ -2,10 +2,7 @@
 # ParseRecipe.csv to html
 # Author(s): Dad and Tara
 # Version 1 - added css class to all columns except header
- 
-#!/usr/bin/python
-# create html table from csv
- 
+  
 import sys
 import csv
   
@@ -21,6 +18,7 @@ htmlfile = open(sys.argv[2],"w")
  
 # initialize rownum variable
 rownum = 0
+
 # Style Header
 htmlfile.write('''<ul><style type="text/css"> 
                         h1 {font-weight:bold;font-size:20  px} 
