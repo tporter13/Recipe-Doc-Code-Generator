@@ -5,13 +5,19 @@
   
 import sys
 import csv
+import operator
   
 if len(sys.argv) < 3:
     print ("Usage: csvToTable.py csv_file html_file")
     exit(1)
  
+# csv format: title, instructions, tag, order 
+ 
 # Open the CSV file for reading
 reader = csv.reader(open(sys.argv[1]))
+
+# sort csv file
+sortedreader = sorted(reader, key=operator.itemgetter(2,0))
 
 # Create the HTML file for output
 htmlfile = open(sys.argv[2],"w")
@@ -19,7 +25,7 @@ htmlfile = open(sys.argv[2],"w")
 # initialize rownum variable
 rownum = 0
 
-# Style Header
+# Style Header 
 htmlfile.write('''<ul><style type="text/css"> 
                         h1 {font-weight:bold;font-size:20  px} 
                         li {font-weight:normal;font-size:14px;list-style-type: none;} 
@@ -32,7 +38,7 @@ htmlfile.write('''<ul><style type="text/css">
 htmlfile.write('<ul>')
 
 # generate table contents
-for row in reader: # Read a single row from the CSV file
+for row in sortedreader: # Read a single row from the CSV file
     htmlfile.write('<li class="recipe-heading">' + row[0] + '</li>')
     htmlfile.write('<li class="recipe-instructions">' + row[1].replace('\n', '<br />') + '</li>')
     htmlfile.write('<li class="recipe-tag">' + row[2] + '</li>')
