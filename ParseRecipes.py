@@ -25,7 +25,7 @@ htmlfile = open(sys.argv[2],"w")
 # initialize rownum variable
 rownum = 0
 
-# Style Header
+# Style Header 
 htmlfile.write('''<ul><style type="text/css"> 
                         h1 {font-weight:bold;font-size:20  px} 
                         li {font-weight:normal;font-size:14px;list-style-type: none;} 
