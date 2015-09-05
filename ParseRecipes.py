@@ -62,3 +62,4 @@ htmlfile.write('</ul>')
 # print results to shell
 print ("Created " + str(rownum) + " row table.")
 exit(0)
+
